@@ -2,6 +2,11 @@
 @import 'bootstrap-icons/font/bootstrap-icons.min.css';
 @import 'font-awesome/css/font-awesome.min.css';
 
+@font-face {
+  font-family: gugi;
+  src: url(/assets/fonts/gugi/Gugi-Regular.ttf) format('truetype')
+}
+
 $orange: #ffa213;
 $page-background: #2A2A2A;
 $blue-theme: #5ce1e6;

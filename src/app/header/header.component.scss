@@ -1,3 +1,4 @@
+
 $accent: #ffa213;
 $page-background: #2A2A2A;
 $hover: #313131;
@@ -34,6 +35,7 @@ header {
   display: inline-block;
   font-size: 18px;
   margin-left: 26px;
+  font-family: gugi;
 }
 .desktop_menu ul li:hover {
   font-weight: bold;
@@ -74,7 +76,6 @@ header {
   }
   .desktop_menu ul li {
     display: block;
-    #text-align: left;
     list-style-type: none;
     margin: 0;
     border-bottom: 1px solid grey;
