@@ -1,9 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-$background: #ffa213;
+@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+@import 'font-awesome/css/font-awesome.min.css';
+
+$orange: #ffa213;
+$page-background: #2A2A2A;
+$blue-theme: #5ce1e6;
 
 html, body {
   margin: 0;
   padding: 0;
-  background-color: $background;
+  background-color: $page-background;
   height: 100%
+}
+
+.menu-icon {
+  color: black;
 }
