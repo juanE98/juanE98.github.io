@@ -1,4 +1,4 @@
-
+@import "../../styles.scss";
 $accent: #ffa213;
 $page-background: #2A2A2A;
 $hover: #313131;
@@ -40,7 +40,7 @@ header {
 .desktop_menu ul li:hover {
   font-weight: bold;
   cursor: pointer;
-  color: $accent;
+  color: $blue-theme;
   transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
 }
 .menu-icon {
@@ -48,7 +48,7 @@ header {
 }
 
 .menu-icon:hover {
-  color: $accent;
+  color: $blue-theme;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
 }
