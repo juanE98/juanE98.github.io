@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 
 @Component({
-  selector: 'app-banner',
+  selector: 'app-home',
   standalone: true,
   imports: [
     NgOptimizedImage
   ],
-  templateUrl: './banner.component.html',
-  styleUrl: './banner.component.scss'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
-export class BannerComponent {
+export class HomeComponent {
 
 }
