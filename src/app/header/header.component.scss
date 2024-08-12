@@ -1,4 +1,5 @@
 @import "../../styles.scss";
+
 $accent: #ffa213;
 $page-background: #2A2A2A;
 $hover: #313131;
@@ -18,6 +19,7 @@ header {
   font-size: 1em;
   width: 5em;
   height: auto;
+  margin-top: 0.4em;
 }
 
 .desktop_menu {
@@ -27,7 +29,8 @@ header {
   display: flex;
   justify-content: right;
   text-align: center;
-  padding: 0.2em 1em 0.2em 0.2em;
+  padding: 0.2em 1em 0.3em 0.3em;
+  margin-right: 0.6em;
 }
 .desktop_menu ul li {
   list-style-type: none;
