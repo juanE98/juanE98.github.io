@@ -1,0 +1,28 @@
+.carousel {
+  overflow: hidden;
+  width: 75%;
+  position: relative;
+  margin: 0 auto;
+  padding-bottom: 3em;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+}
+
+.carousel img {
+  text-align: center;
+  flex-shrink: 0;
+  width: 20em;
+  height: 20em;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(calc(-20em * 32)); /* 16 icons from 5.svg to 20.svg */
+  }
+}
