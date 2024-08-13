@@ -12,7 +12,27 @@ $page-background: #2A2A2A;
 $blue-theme: #91d3d6;
 $text: #d9d9d9;
 
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 html, body {
   margin: 0;
   padding: 0;
