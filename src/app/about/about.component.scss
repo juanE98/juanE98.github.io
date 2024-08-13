@@ -18,16 +18,35 @@
 .column {
   flex: 1;
   padding: 1em;
+  opacity: 0;
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .left-column {
   background-color: $page-background;
   margin-left: 3em;
+  transform: translateX(100%);
 }
 
 .right-column {
   background-color: $page-background;
   margin-right: 4em;
+  transform: translateX(-100%);
+}
+
+.column.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.left-column.out-of-view {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.right-column.out-of-view {
+  opacity: 0;
+  transform: translateX(100%);
 }
 
 @media screen and (min-width: 128px) and (max-width: 900px) {

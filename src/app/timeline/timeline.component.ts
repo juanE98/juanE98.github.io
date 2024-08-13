@@ -14,7 +14,7 @@ export class TimelineComponent {
   readonly events: ReadonlyArray<[string, string, string]> = [
     ['Bachelor of Pharmaceutics and Therapeutic Science', 'University of Queensland - 2018', 'text'],
     ['Bachelor of Computer Science', 'University of Queensland - 2022', 'text'],
-    ['2023-03-01', 'Event 3', 'text'],
+    ['2023-03-01', 'Event 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc ultricies aliquam. lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc ultricies aliquam.'],
     ['2023-03-01', 'Event 3', 'text'],
     ['2023-03-01', 'Event 3', 'text'],
     ['2023-03-01', 'Event 3', 'text'],
