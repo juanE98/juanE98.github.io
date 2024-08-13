@@ -9,7 +9,7 @@
 
 $orange: #ffa213;
 $page-background: #2A2A2A;
-$blue-theme: #5ce1e6;
+$blue-theme: #91d3d6;
 $text: #d9d9d9;
 
 
@@ -40,9 +40,25 @@ html, body {
 }
 
 h2 {
-  font-family: gugi;
-  font-size: 4em;
+  font-family: gugi, serif;
+  font-size: 3.5em;
   color: $text;
+}
+
+/* Mainly for the timeline section */
+h3 {
+  font-family: gugi, serif;
+  font-size: 2em;
+  color: $text;
+  line-height: 1.1;
+}
+
+h4 {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5em;
+  color: $text;
+  line-height: 1.5;
+  font-style: italic;
 }
 
 p {
