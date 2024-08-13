@@ -6,6 +6,12 @@
   padding-bottom: 3em;
 }
 
+h2 {
+  text-align: center; /* Center the text horizontally */
+  margin: 0 auto; /* Center the element horizontally */
+  padding: 1em 0; /* Optional: Add padding for spacing */
+}
+
 .carousel-track {
   display: flex;
   animation: scroll 40s linear infinite;
