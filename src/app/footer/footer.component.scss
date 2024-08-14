@@ -1,0 +1,24 @@
+@import "../../styles.scss";
+
+footer {
+  text-align: center;
+  padding: 2.5em;
+  background-color: $page-background;
+
+  .social-icons {
+    a {
+      margin: 0 10px;
+      i {
+        font-size: 1.2em;
+        color: $text;
+        transition: color 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 1em;
+    color: $text;
+    font-size: 14px;
+  }
+}

@@ -6,12 +6,13 @@ import {HomeComponent} from "./home/home.component";
 import {AboutComponent} from "./about/about.component";
 import {ImageCarouselComponent} from "./image-carousel/image-carousel.component";
 import {TimelineComponent} from "./timeline/timeline.component";
+import {FooterComponent} from "./footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [HomeComponent, HeaderComponent, RouterOutlet, CommonModule, AboutComponent, TimelineComponent,
-    ImageCarouselComponent],
+    ImageCarouselComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
