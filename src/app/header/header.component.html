@@ -13,9 +13,9 @@
         <div class="desktop_menu" [class.mobile_menu]="menuValue">
           <ul>
             <li (click)="closeMenu()">Home</li>
-            <li (click)="closeMenu()">About Me</li>
+            <li (click)="closeMenu(); goToPart('about')"><a>About Me</a></li>
             <li (click)="closeMenu()">Experience</li>
-            <li (click)="closeMenu()">Technologies</li>
+            <li (click)="closeMenu(); goToPart('technologies')"><a>Technologies</a></li>
             <li (click)="closeMenu()">Projects</li>
           </ul>
         </div>
