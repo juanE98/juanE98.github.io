@@ -24,7 +24,7 @@ export class ImageCarouselComponent implements OnInit {
   generateIconPaths(start: number, end: number): string[] {
     const paths: string[] = [];
     for (let i = start; i <= end; i++) {
-      paths.push(`/assets/icons/${i}.svg`);
+      paths.push(`assets/icons/${i}.svg`);
     }
     return paths;
   }
