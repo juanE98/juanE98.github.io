@@ -33,7 +33,7 @@
               {
                 "glob": "**/*",
                 "input": "assets",
-                "output": "/assets"
+                "output": "/public/assets"
               }
             ],
             "styles": [
@@ -55,7 +55,8 @@
                   "maximumError": "120kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/website-portfolio/"
             },
             "development": {
               "optimization": false,
@@ -93,7 +94,7 @@
               {
                 "glob": "**/*",
                 "input": "assets",
-                "output": "/assets"
+                "output": "/public/assets"
               }
             ],
             "styles": [
