@@ -6,12 +6,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-- Add the `--host 0.0.0.0` to serve it in your local network.
+- Add the `--host 0.0.0.0` to host it in your local network.
 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Deployment
 
