@@ -12,12 +12,12 @@ import {NgForOf} from "@angular/common";
 })
 export class TimelineComponent {
   readonly events: ReadonlyArray<[string, string, string]> = [
-    ['Pharmacy Student', 'Calanna Terrywhite Townsville - 2018', 'rural pharmacy student placement'],
-    ['Pharmacy Assitant', 'Chemist Warehouse Carseldine - 2019', 'Worked in a fast paced environment where time management and communication / customer support skills were vital.'],
-    ['Bachelor of Pharmaceutics and Therapeutic Science', 'University of Queensland - 2018', 'text'],
-    ['Bachelor of Computer Science', 'University of Queensland | 2022', 'text'],
-    ['Scriptsoft', 'Software Developer - 2023', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc ultricies aliquam. lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc ultricies aliquam.'],
-    ['Dye and Durham', 'Junior Software Engineer - Current', 'text'],
+    ['Pharmacy Student', 'Calanna Terrywhite - 2018', 'rural pharmacy student placement'],
+    ['Bachelor of Pharmaceutics and Therapeutic Science', 'University of Queensland - 2018', ''],
+    ['Pharmacy Assitant', 'Chemist Warehouse - 2019', 'Worked in a fast paced environment where time management and communication / customer support skills were vital.'],
+    ['Bachelor of Computer Science', 'University of Queensland - 2022', ''],
+    ['Scriptsoft', 'Software Developer - 2023', 'Monolithic .NET framework applications for pharmaceutical and small business software.'],
+    ['Dye and Durham', 'Junior Software Engineer - Current', 'Primarily .NET microservices and Angular.'],
   ];
 
   @HostListener('window:scroll', [])
