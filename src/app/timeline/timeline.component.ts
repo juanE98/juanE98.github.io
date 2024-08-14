@@ -1,11 +1,12 @@
 import { Component, HostListener } from '@angular/core';
 import {NgForOf} from "@angular/common";
+import {ScrollVisibilityDirective} from "../scroll-visibility.directive";
 
 @Component({
   selector: 'app-timeline',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf, ScrollVisibilityDirective
   ],
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.scss'] // Corrected property name
