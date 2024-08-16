@@ -16,7 +16,7 @@
 
 ## Deployment
 
-- CI/CD is implemented with Github Actions. The workflow will be triggered by any push to the Main branch and then deployed automatically to Github Pages with the output from the prod branch. 
+- CI/CD is implemented with Github Actions. The workflow will be triggered by any push to the Main branch and then deployed automatically to Github Pages with the output from the prod branch.
 
 ## Further help
 
