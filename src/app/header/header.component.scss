@@ -5,7 +5,6 @@ $page-background: #2A2A2A;
 $hover: #313131;
 $text: #d9d9d9;
 
-
 header {
   display: flex;
   align-items: center;
@@ -13,7 +12,14 @@ header {
   padding: 0.1em;
   background: $page-background;
   margin: 0;
+  transition: opacity 0.5s ease-in-out;
 }
+
+header.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .logo {
   display: flex;
   font-size: 1em;
@@ -25,6 +31,7 @@ header {
 .desktop_menu {
   margin-top: 0.5em;
 }
+
 .desktop_menu ul {
   display: flex;
   justify-content: right;
@@ -32,6 +39,7 @@ header {
   padding: 0.2em 1em 0.3em 0.3em;
   margin-right: 0.6em;
 }
+
 .desktop_menu ul li {
   list-style-type: none;
   color: $text;
@@ -40,62 +48,87 @@ header {
   margin-left: 26px;
   font-family: gugi;
 }
+
 .desktop_menu ul li:hover {
   font-weight: bold;
   cursor: pointer;
   color: $blue-theme;
   transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
 }
+
 .menu-icon {
-  display: none;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  padding-top: -0.8em;
+  padding-right: 1em;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  z-index: 1005;
+  position: relative;
 }
 
 .menu-icon:hover {
   color: $blue-theme;
-  cursor: pointer;
-  transition: color 0.3s ease-in-out;
 }
 
-//responsive design
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+.no-interaction {
+  pointer-events: none;
+}
+
+.mobile-menu-container {
+  position: relative;
+  z-index: 1001; /* Ensure it is on top */
+}
+
+.desktop_menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background-color: $page-background;
+  padding: 1em;
+  z-index: 1000;
+  transition: right 0.4s ease-in-out;
+}
+
+.desktop_menu.mobile_menu {
+  right: 0;
+}
 
 @media screen and (min-width: 128px) and (max-width: 900px) {
   .desktop_menu {
     display: none;
   }
 
-  .desktop_menu.mobile_menu{
+  .desktop_menu.mobile_menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    right:0;
+    right: 0;
     transition: 0.4s ease-in-out;
   }
 
   .desktop_menu ul {
     display: flex;
     flex-direction: column;
-    align-items: center; // Center the list items
+    align-items: center;
     padding: 0;
   }
+
   .desktop_menu ul li {
     display: block;
     list-style-type: none;
     margin: 0;
-    border-bottom: 1px solid grey;
     color: $text;
     font-size: 1.5em;
     padding: 0.5em 0;
-  }
-  .menu-icon {
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 40px;
-    padding-top: 1em;
-    padding-right: 1em;
-  }
-  .mobile_menu {
-    right: 0;
-    transition: 0.4s ease-in-out;
   }
 }
