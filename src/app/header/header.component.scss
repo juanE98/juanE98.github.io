@@ -30,6 +30,8 @@ header.hidden {
 
 .desktop_menu {
   margin-top: 0.5em;
+  background-color: rgba(42, 42, 42, 0.9);
+
 }
 
 .desktop_menu ul {
@@ -45,8 +47,8 @@ header.hidden {
   color: $text;
   display: inline-block;
   font-size: 18px;
-  margin-left: 26px;
   font-family: gugi, serif;
+  margin-right: 2em;
 }
 
 .desktop_menu ul li:hover {
@@ -62,7 +64,7 @@ header.hidden {
   color: white;
   font-size: 40px;
   padding-top: -0.8em;
-  padding-right: 1em;
+  padding-right: -0.7em;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
   z-index: 1005;
