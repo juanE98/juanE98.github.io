@@ -22,3 +22,10 @@ footer {
     font-size: 14px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  footer {
+    text-align: center;
+    margin: 0 auto;
+  }
+}

@@ -89,13 +89,12 @@
   animation: slideInRight 1s ease-out forwards;
 }
 
-@media screen and (min-width: 128px) and (max-width: 900px) {
+@media screen and (max-width: 480px) {
   .timeline-item {
     width: 100%;
     left: 0 !important;
   }
 
-  /*align circles to the left*/
   .timeline-item.left .circle,
   .timeline-item.right .circle {
     left: 0;
@@ -105,7 +104,7 @@
 
   .timeline-item .circle {
     left: 50%;
-    margin-left: -12.5px;
+    margin-left: -0.7em;
   }
   .timeline::after {
     left: -2%;
