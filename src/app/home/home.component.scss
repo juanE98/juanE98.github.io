@@ -1,14 +1,36 @@
-
-container {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .container img {
   display: block;
   margin: 5em auto 6em;
   padding-bottom: 8em;
+  max-width: 100%;
+  height: auto;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 1em;
+  }
 
+  .container img {
+    margin: 2em auto 3em;
+    padding-bottom: 4em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5em;
+  }
+
+  .container img {
+    margin: 1em auto 2em;
+    padding-bottom: 2em;
+  }
+}

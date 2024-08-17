@@ -46,8 +46,44 @@
   opacity: 1;
 }
 
-@media screen and (min-width: 128px) and (max-width: 900px) {
+@media screen and (max-width: 768px) {
+  .about-container {
+    padding: 2em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-pic {
+    margin: 0 auto 1em;
+    max-width: 100%;
+  }
+
   .column {
-    flex: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 1em 0;
+    display: block; /* Ensure columns are displayed */
+    opacity: 1; /* Ensure columns are visible */
+  }
+
+  .left-column, .right-column {
+    transform: none;
+    margin: 0;
+  }
+
+  .left-column.in-view, .right-column.in-view {
+    animation: none;
+    display: block;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-container {
+    padding: 1em;
+  }
+
+  .column {
+    padding: 0.5em 0;
   }
 }

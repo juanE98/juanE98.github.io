@@ -33,3 +33,47 @@ h2 {
     transform: translateX(calc(-20em * 32)); /* 16 icons from 5.svg to 20.svg */
   }
 }
+
+@media (max-width: 768px) {
+  .carousel {
+    width: 90%;
+    padding-top: 4em;
+    padding-bottom: 2em;
+  }
+
+  .carousel img {
+    width: 15em;
+    height: 15em;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-15em * 32)); /* Adjust for smaller images */
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    width: 100%;
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+
+  .carousel img {
+    width: 10em;
+    height: 10em;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(calc(-10em * 32)); /* Adjust for smaller images */
+    }
+  }
+}

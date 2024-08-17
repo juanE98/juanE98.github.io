@@ -16,14 +16,14 @@
 .timeline-item {
   padding: 1em;
   position: relative;
-  width: 50%;
+  width: 70%;
   opacity: 0;
   display: none;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .timeline-item.left {
-  left: -10%;
+  left: -35%;
 }
 
 .timeline-item.right {
@@ -63,11 +63,11 @@
 }
 
 .timeline-item.left .circle {
-  left: 30em; /* Move the left content circle more to the right */
+  left: 42.5em;
 }
 
 .timeline-item.right .circle {
-  left: -5em; /* Move the right content circle more to the left */
+  left: -5em;
 }
 
 .timeline-item.in-view {
