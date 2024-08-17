@@ -1,6 +1,5 @@
-<h2>My Skillset</h2>
-
-<div class="carousel">
+<div class="carousel"  [appScrollVisibility]="'.carousel-track'">
+  <h2>My Skill Set</h2>
   <div class="carousel-track">
     <img *ngFor="let icon of icons" [ngSrc]="icon" alt="Icon" width="280" height="300">
   </div>

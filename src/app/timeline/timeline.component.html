@@ -1,6 +1,6 @@
-<div class="timeline-container" >
+<div class="timeline-container"  [appScrollVisibility]="'.timeline'">
   <h2 class="timeline-title">Experience</h2>
-  <div class="timeline" [appScrollVisibility]="'.timeline-item'">
+  <div class="timeline">
     <div *ngFor="let event of events; let i = index" class="timeline-item" [class.left]="i % 2 === 0" [class.right]="i % 2 !== 0">
       <div class="circle"></div>
       <div class="content">
