@@ -18,7 +18,7 @@ export class TimelineComponent {
     ['Pharmacy Assistant', 'Chemist Warehouse - 2019', 'Worked in a fast paced environment where time management and communication / customer support skills were vital.'],
     ['Bachelor of Computer Science', 'University of Queensland - 2022', ''],
     ['Scriptsoft', 'Software Developer - 2023', 'Monolithic .NET framework applications for pharmaceutical and small business software.'],
-    ['Dye and Durham', 'Junior Software Engineer - Current', 'Primarily .NET microservices and Angular.'],
+    ['Dye and Durham', 'Junior Software Engineer - Current', 'Primarily .NET microservices with Angular frontend deployed through kubernetes in GCP.'],
   ];
 
   @HostListener('window:scroll', [])
