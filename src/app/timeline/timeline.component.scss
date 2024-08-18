@@ -1,11 +1,11 @@
 @import "../../styles.scss";
 
 .timeline-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 46%;
+  margin: 5em auto 0;
   padding: 1em;
   text-align: center;
+  width: 100%;
 }
 
 .timeline {
@@ -97,17 +97,17 @@
 
   .timeline-item.left .circle,
   .timeline-item.right .circle {
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item .circle {
     width: 2em;
     height: 2em;
   }
 
-  .timeline-item .circle {
-    left: 50%;
-    margin-left: -0.7em;
-  }
   .timeline::after {
-    left: -2%;
-    transform: none;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

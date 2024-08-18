@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
   standalone: true
 })
 export class ScrollVisibilityDirective {
-  @Input('appScrollVisibility') selector: string = '.column'; // Default value
+  @Input('appScrollVisibility') selector: string = '.column';
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 

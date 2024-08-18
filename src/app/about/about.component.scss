@@ -7,6 +7,10 @@
   padding: 6em;
 }
 
+p {
+  text-indent: 0.5em;
+}
+
 .profile-pic {
   margin-right: 1em;
   max-width: 90%;
@@ -80,8 +84,8 @@
 
 @media screen and (max-width: 480px) {
   .about-container {
-    padding: 1em;
-    padding-top: 2em;
+    padding: 2em 1em 1em;
+    font-size: 2em;
   }
 
   .column {

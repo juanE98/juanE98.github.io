@@ -31,7 +31,6 @@ header.hidden {
 .desktop_menu {
   margin-top: 0.5em;
   background-color: rgba(42, 42, 42, 0.9);
-
 }
 
 .desktop_menu ul {
@@ -63,12 +62,17 @@ header.hidden {
   justify-content: center;
   color: white;
   font-size: 40px;
-  padding-top: -0.8em;
+  padding-top: -1.9em;
   padding-right: -0.7em;
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, opacity 0.5s ease-in-out;
   z-index: 1005;
   position: relative;
+}
+
+.menu-icon.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .menu-icon:hover {

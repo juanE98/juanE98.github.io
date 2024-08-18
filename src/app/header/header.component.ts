@@ -1,4 +1,4 @@
-import { Component, Renderer2, HostListener } from '@angular/core';
+import { Component, Renderer2, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
 
@@ -15,6 +15,8 @@ export class HeaderComponent {
   menuValue: boolean = false;
   menu_icon: string = "bi bi-list";
   lastScrollTop: number = 0;
+
+  @ViewChild('aboutSection') aboutSection!: ElementRef;
 
   constructor(private router: Router, private renderer: Renderer2) {}
 
@@ -53,5 +55,16 @@ export class HeaderComponent {
       this.renderer.removeClass(document.querySelector('header'), 'hidden');
     }
     this.lastScrollTop = st <= 0 ? 0 : st;
+
+    // Check if about section is in view
+    const aboutPosition = this.aboutSection.nativeElement.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (aboutPosition < windowHeight && aboutPosition >= 0) {
+      this.closeMenu();
+    }
+  }
+
+  onMenuIconFade() {
+    this.closeMenu();
   }
 }
