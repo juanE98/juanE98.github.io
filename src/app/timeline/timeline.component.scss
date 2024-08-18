@@ -91,15 +91,17 @@
 
 @media screen and (max-width: 480px) {
   .timeline-item {
-    width: 100%;
-    left: 0 !important;
+    width: 150%;
+    left: -4em !important;
   }
 
   .timeline-item.left .circle,
   .timeline-item.right .circle {
-    left: 50%;
-    transform: translateX(-50%);
+    left: -5em;
+    transform: translateX(0);
   }
+
+
 
   .timeline-item .circle {
     width: 2em;
@@ -107,7 +109,7 @@
   }
 
   .timeline::after {
-    left: 50%;
-    transform: translateX(-50%);
+    left: -8em;
+    transform: translateX(0);
   }
 }
