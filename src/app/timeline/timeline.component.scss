@@ -113,3 +113,14 @@
     transform: translateX(0);
   }
 }
+
+@media screen and (max-width: 1440px) {
+  .timeline-item.left .circle {
+    left: 34.85em;
+  }
+
+  .timeline-item.right .circle {
+    left: -4.17em;
+  }
+
+}
