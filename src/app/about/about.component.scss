@@ -24,6 +24,7 @@ p {
   padding: 1em;
   opacity: 0;
   display: none;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .left-column {
@@ -66,8 +67,9 @@ p {
     width: 100%;
     margin: 0;
     padding: 1em 0;
-    display: block; /* Ensure columns are displayed */
-    opacity: 1; /* Ensure columns are visible */
+    display: block;
+    opacity: 1;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
 
   .left-column, .right-column {
@@ -76,9 +78,21 @@ p {
   }
 
   .left-column.in-view, .right-column.in-view {
-    animation: none;
+    animation: slideInLeft 1s ease-out forwards, slideInRight 1s ease-out forwards;
     display: block;
     opacity: 1;
+  }
+
+  .left-column.out-of-view {
+    animation: slideOutLeft 1s ease-out forwards;
+    display: block;
+    opacity: 0;
+  }
+
+  .right-column.out-of-view {
+    animation: slideOutRight 1s ease-out forwards;
+    display: block;
+    opacity: 0;
   }
 }
 
@@ -86,6 +100,7 @@ p {
   h2 {
     text-align: center;
   }
+
   .about-container {
     padding: 2em 1em 1em;
     font-size: 2em;
@@ -93,9 +108,41 @@ p {
 
   .column {
     padding: 0.5em 0;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
 
   .profile-pic {
     transform: scale(0.9);
+  }
+
+  .left-column, .right-column {
+    transform: none;
+    margin: 0;
+  }
+
+  .left-column.in-view {
+    animation: slideInLeft 1s ease-out forwards;
+    display: block;
+    opacity: 1;
+  }
+
+  .right-column.in-view {
+    animation: slideInRight 1s ease-out forwards;
+    display: block;
+    opacity: 1;
+  }
+
+  .left-column.out-of-view {
+    animation: slideOutLeft 1s ease-out forwards;
+    display: block;
+    opacity: 0;
+  }
+
+  .right-column.out-of-view {
+    animation: slideOutRight 1s ease-out forwards;
+    display: block;
+    opacity: 0;
   }
 }
