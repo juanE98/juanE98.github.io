@@ -25,7 +25,7 @@ header.hidden {
   font-size: 1em;
   width: 5em;
   height: auto;
-  margin-top: 0.4em;
+  margin-top: 0.8em;
 }
 
 .desktop_menu {
@@ -62,7 +62,7 @@ header.hidden {
   justify-content: center;
   color: white;
   font-size: 40px;
-  padding-top: -1.9em;
+  padding-top: -2.7em;
   padding-right: -0.7em;
   cursor: pointer;
   transition: color 0.3s ease-in-out, opacity 0.5s ease-in-out;
@@ -91,6 +91,7 @@ header.hidden {
 }
 
 @media screen and (max-width: 480px)  {
+
   .desktop_menu {
     display: none;
   }
