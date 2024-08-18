@@ -21,4 +21,4 @@
 ## Backlog
 - Implement unit tests
 - Enhance animations for timeline component
-- Mobile responsiveness for different types of screens implemented with BreakpointObserver Service 
+- Implement mobile responsiveness for more screens with BreakpointObserver Service
