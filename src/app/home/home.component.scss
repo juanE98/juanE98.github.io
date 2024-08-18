@@ -15,32 +15,23 @@
   height: auto;
 }
 
-.scroll-icon {
+.arrow-button {
+  position: absolute;
+  bottom: 4em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
   font-size: 2em;
-  color: $text;
   cursor: pointer;
-  margin-top: -5em;
-  transition: color 0.3s ease-in-out, opacity 0.5s ease-in-out;
-
-  &:hover {
-    color: $blue-theme;
-  }
-
-  &.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
+  transition: opacity 0.3s ease-in-out;
+  color: $text;
+  opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 1em;
-  }
-
-  .container img {
-    margin: 2em auto 3em;
-    padding-bottom: 4em;
-  }
+.arrow-button.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 480px) {
@@ -51,5 +42,8 @@
   .container img {
     margin: 10em auto 2em;
     padding-bottom: 30em;
+  }
+  .arrow-button {
+    font-size: 4.5em;
   }
 }

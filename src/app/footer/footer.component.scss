@@ -28,4 +28,10 @@ footer {
     text-align: center;
     margin: 0 auto;
   }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    font-size: 3em;
+  }
 }
