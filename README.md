@@ -18,6 +18,7 @@
 
 - CI/CD is implemented with Github Actions. The workflow will be triggered by any push to the Main branch and then deployed automatically to Github Pages with the output from the prod branch.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Backlog
+- Implement unit tests
+- Enhance animations for timeline component
+- Mobile responsiveness for different types of screens implemented with BreakpointObserver Service 
