@@ -114,7 +114,7 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 481px) and (max-width: 1440px) {
   .timeline-item.left .circle {
     left: 34.85em;
   }
