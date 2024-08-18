@@ -18,9 +18,7 @@ export class ImageCarouselComponent implements OnInit {
 
   ngOnInit() {
     this.icons = this.generateIconPaths(5, 20);
-    this.icons = [...this.icons, ...this.icons];
-    console.log(this.icons);
-
+    this.icons = [...this.icons, ...this.icons]; // Duplicate the icons array
   }
 
   generateIconPaths(start: number, end: number): string[] {

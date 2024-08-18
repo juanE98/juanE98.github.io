@@ -1,79 +1,61 @@
-.carousel {
-  overflow: hidden;
-  width: 75%;
-  position: relative;
-  margin: 0 auto;
-  padding-bottom: 4em;
-  padding-top: 8em;
-}
+@import "../../styles.scss";
 
 h2 {
   text-align: center;
+  magrin-top: 3.5em;
+  padding-top: 3.5em;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel {
+  overflow: hidden;
+  padding: 1.5em 0;
+  width: 85%;
+  background: $page-background;
+  white-space: nowrap;
+  position: relative;
   margin: 0 auto;
-  padding: 1em 0;
+}
+
+.carousel:before,
+.carousel:after {
+  position: absolute;
+  top: 0;
+  width: 5em;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.carousel:before {
+  left: 0;
+}
+
+.carousel:after {
+  right: 0;
 }
 
 .carousel-track {
-  display: flex;
-  animation: scroll 40s linear infinite;
+  display: inline-block;
+  animation: 35s slide infinite linear;
 }
 
-.carousel img {
-  text-align: center;
-  flex-shrink: 0;
-  width: 20em;
-  height: 20em;
+.carousel-track img {
+  height: 28em;
+  margin: 0 -0.1em;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(calc(-20em * 32)); /* 16 icons from 5.svg to 20.svg */
-  }
-}
-
-@media (max-width: 768px) {
-  .carousel {
-    width: 90%;
-    padding-top: 4em;
-    padding-bottom: 2em;
-  }
-
-  .carousel img {
-    width: 15em;
-    height: 15em;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(calc(-15em * 32)); /* Adjust for smaller images */
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel {
-    width: 100%;
-    padding-top: 2em;
-    padding-bottom: 1em;
-  }
-
-  .carousel img {
-    width: 10em;
-    height: 10em;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(calc(-10em * 32)); /* Adjust for smaller images */
-    }
+@media screen and (max-width: 480px) {
+  .carousel-track img {
+    height: 23em;
+    margin: 0 -0.1em;
   }
 }
