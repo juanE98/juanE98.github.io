@@ -83,6 +83,9 @@ p {
 }
 
 @media screen and (max-width: 480px) {
+  h2 {
+    text-align: center;
+  }
   .about-container {
     padding: 2em 1em 1em;
     font-size: 2em;
