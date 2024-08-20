@@ -4,9 +4,16 @@
   <meta charset="utf-8">
   <title>WebsitePortfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 </head>
 <body>
   <app-root></app-root>
+  <script>
+    document.addEventListener('wheel', function(event) {
+      if (event.ctrlKey) {
+        event.preventDefault();
+      }
+    }, { passive: false });
+  </script>
 </body>
 </html>
