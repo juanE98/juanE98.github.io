@@ -1,4 +1,4 @@
-import { Component, Renderer2, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, Renderer2, HostListener, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { NgClass } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
   menuValue: boolean = false;
   menu_icon: string = "bi bi-list";
   lastScrollTop: number = 0;
@@ -19,6 +19,10 @@ export class HeaderComponent {
   @ViewChild('aboutSection') aboutSection!: ElementRef;
 
   constructor(private router: Router, private renderer: Renderer2) {}
+
+  ngAfterViewInit() {
+    // Ensure aboutSection is available after view initialization
+  }
 
   openMenu() {
     this.menuValue = !this.menuValue;
@@ -43,7 +47,12 @@ export class HeaderComponent {
   }
 
   goToPart(fragment: string) {
-    this.router.navigate(['/'], { fragment });
+    this.router.navigate(['/'], { fragment }).then(() => {
+      const element = document.getElementById(fragment);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 
   @HostListener('window:scroll', [])
