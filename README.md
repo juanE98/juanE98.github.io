@@ -1,5 +1,5 @@
 # WebsitePortfolio
-![Angular](https://img.shields.io/badge/angular-18.3.1-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+![Angular](https://img.shields.io/badge/angular-19.2.13-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-5.5.2-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Build Status](https://github.com/juanE98/website-portfolio/actions/workflows/main.yaml/badge.svg)
 
