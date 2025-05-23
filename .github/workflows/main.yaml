@@ -1,29 +1,33 @@
 name: Angular Build and Deploy
-
 on:
   push:
     branches:
-        - main
-
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v3 
+      
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
-
-      - name: Build Angular app to prod
-        working-directory: .
-        run: npm install && npm run build:prod
-
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build Angular app
+        run: npm run build:prod
+      
+      - name: List dist directory structure
+        run: ls -la dist/
+      
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/browser
+          folder: dist/website-portfolio/browser
           branch: prod
           token: ${{ secrets.GH_TOKEN }}
