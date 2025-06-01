@@ -4,39 +4,47 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 6em;
-  overflow-x: hidden;
+  min-height: calc(100vh - 12em);
 }
 
 p {
   text-indent: 0.5em;
+  margin-bottom: 1.5em;
 }
 
 .profile-pic {
-  margin-right: 1em;
-  max-width: 90%;
-  max-height: 90%;
+  width: 400px;
   height: auto;
   border-radius: 50%;
+  margin-bottom: 2em;
 }
 
 .column {
   flex: 1;
-  padding: 1em;
-  opacity: 0;
+  padding: 2em;
+  opacity: 1;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  display: block;
+  min-width: 300px;
 }
 
 .left-column {
   background-color: $page-background;
-  margin-left: 3em;
+  margin-right: 2em;
   transform: translateX(-100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .right-column {
   background-color: $page-background;
-  margin-right: 4em;
+  margin-left: 2em;
   transform: translateX(100%);
+  flex: 2;
 }
 
 .left-column.in-view {
@@ -53,23 +61,20 @@ p {
 
 @media screen and (max-width: 768px) {
   .about-container {
-    padding: 2em;
+    padding: 3em;
     flex-direction: column;
     align-items: center;
   }
 
   .profile-pic {
-    margin: 0 auto 1em;
-    max-width: 100%;
+    width: 300px;
+    margin: 0 auto 2em;
   }
 
   .column {
     width: 100%;
     margin: 0;
-    padding: 1em 0;
-    display: block;
-    opacity: 1;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    padding: 1.5em;
   }
 
   .left-column, .right-column {
@@ -77,22 +82,8 @@ p {
     margin: 0;
   }
 
-  .left-column.in-view, .right-column.in-view {
-    animation: slideInLeft 1s ease-out forwards, slideInRight 1s ease-out forwards;
-    display: block;
-    opacity: 1;
-  }
-
-  .left-column.out-of-view {
-    animation: slideOutLeft 1s ease-out forwards;
-    display: block;
-    opacity: 0;
-  }
-
-  .right-column.out-of-view {
-    animation: slideOutRight 1s ease-out forwards;
-    display: block;
-    opacity: 0;
+  .right-column {
+    flex: 1;
   }
 }
 
@@ -102,47 +93,14 @@ p {
   }
 
   .about-container {
-    padding: 2em 1em 1em;
-    font-size: 2em;
-  }
-
-  .column {
-    padding: 0.5em 0;
-    display: block;
-    opacity: 0;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    padding: 2em 1.5em;
   }
 
   .profile-pic {
-    transform: scale(0.9);
+    width: 250px;
   }
 
-  .left-column, .right-column {
-    transform: none;
-    margin: 0;
-  }
-
-  .left-column.in-view {
-    animation: slideInLeft 1s ease-out forwards;
-    display: block;
-    opacity: 1;
-  }
-
-  .right-column.in-view {
-    animation: slideInRight 1s ease-out forwards;
-    display: block;
-    opacity: 1;
-  }
-
-  .left-column.out-of-view {
-    animation: slideOutLeft 1s ease-out forwards;
-    display: block;
-    opacity: 0;
-  }
-
-  .right-column.out-of-view {
-    animation: slideOutRight 1s ease-out forwards;
-    display: block;
-    opacity: 0;
+  .column {
+    padding: 1em;
   }
 }

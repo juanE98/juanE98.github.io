@@ -12,6 +12,33 @@ $page-background: #2A2A2A;
 $blue-theme: #91d3d6;
 $text: #d9d9d9;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: $page-background;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
+  width: 100%;
+  background-color: $page-background;
+  overflow-y: auto;
+}
+
 @keyframes slideInLeft {
   from {
     transform: translateX(-100%);
@@ -54,15 +81,6 @@ $text: #d9d9d9;
     transform: translateX(100%);
     opacity: 0;
   }
-}
-
-
-
-html, body {
-  margin: 0;
-  padding: 0;
-  background-color: $page-background;
-  height: 100%
 }
 
 .menu-icon {
