@@ -30,6 +30,7 @@
   margin: 2em 0;
   position: relative;
   width: 50%;
+  z-index: 2;
 }
 
 .timeline-item.left {
@@ -54,20 +55,20 @@
 
 .timeline-item .circle {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background: radial-gradient(circle, #1c6568 15%, $blue-theme 100%);
   border-radius: 50%;
   top: 50%;
   left: auto;
-  right: -10px;
+  right: -12.5px;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 3;
   border: 3px solid $blue-theme;
 }
 
 .timeline-item.right .circle {
-  left: -10px;
+  left: -12.5px;
   right: auto;
 }
 
@@ -139,16 +140,18 @@
   }
 
   .timeline-item .circle {
-    left: 22px;
+    width: 22px;
+    height: 22px;
+    left: 20px;
     right: auto;
   }
 
   .timeline-item.left .circle {
-    left: 22px;
+    left: 20px;
   }
 
   .timeline-item.right .circle {
-    left: 22px;
+    left: 20px;
   }
 
   .timeline-item.left .content::after,
@@ -179,13 +182,13 @@
   }
 
   .timeline-item .circle {
-    width: 16px;
-    height: 16px;
-    left: 13px;
+    width: 20px;
+    height: 20px;
+    left: 10px;
   }
 
   .timeline-item.left .circle,
   .timeline-item.right .circle {
-    left: 13px;
+    left: 10px;
   }
 }
