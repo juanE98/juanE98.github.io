@@ -48,6 +48,23 @@
     padding-bottom: 30em;
   }
   .arrow-button {
-    font-size: 4.5em;
+    font-size: 2.5em;
+    bottom: 2.5em;
   }
 }
+
+@media (max-width: 380px) {
+  .arrow-button {
+    font-size: 2.2em;
+    bottom: 2.2em;
+  }
+}
+
+/*
+@media (max-width: 414px) and (min-width: 375px) {
+  .arrow-button {
+    font-size: 2.8em;
+    bottom: 2.8em;
+  }
+}
+*/

@@ -4,139 +4,155 @@ $accent: #ffa213;
 $page-background: #2A2A2A;
 $hover: #313131;
 $text: #d9d9d9;
+$blue-theme: #91d3d6;
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.1em;
+  padding: 0 1em;
   background: $page-background;
-  margin: 0;
-  transition: opacity 0.5s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  height: 55px;
+  transition: transform 0.3s ease-in-out;
 }
 
 header.hidden {
-  opacity: 0;
-  pointer-events: none;
+  transform: translateY(-100%);
 }
 
 .logo {
   display: flex;
-  font-size: 1em;
-  width: 5em;
+  align-items: center;
+  width: 4em;
+  max-height: calc(55px - 1em);
   height: auto;
-  margin-top: 0.8em;
+  cursor: pointer;
 }
 
-.desktop_menu {
-  margin-top: 0.5em;
-  background-color: rgba(42, 42, 42, 0.9);
-}
-
-.desktop_menu ul {
+.desktop_menu_nav ul {
   display: flex;
-  justify-content: right;
-  text-align: center;
-  padding: 0.2em 1em 0.3em 0.3em;
-  margin-right: 0.6em;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.desktop_menu ul li {
-  list-style-type: none;
+.desktop_menu_nav ul li {
   color: $text;
-  display: inline-block;
   font-size: 18px;
   font-family: gugi, serif;
-  margin-right: 2em;
-}
-
-.desktop_menu ul li:hover {
-  font-weight: bold;
+  margin-left: 2.5em;
   cursor: pointer;
-  color: $blue-theme;
-  transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 
-.menu-icon {
-  display: flex;
+.desktop_menu_nav ul li:hover {
+  color: $blue-theme;
+}
+
+.menu-icon-open {
+  display: none;
   justify-content: center;
-  color: white;
-  font-size: 40px;
-  padding-top: -2.7em;
-  padding-right: -0.7em;
+  align-items: center;
+  color: $text;
+  font-size: 28px;
   cursor: pointer;
-  transition: color 0.3s ease-in-out, opacity 0.5s ease-in-out;
-  z-index: 1005;
-  position: relative;
+  width: 44px;
+  height: 44px;
+  z-index: 1011;
 }
 
-.menu-icon.hidden {
-  opacity: 0;
-  pointer-events: none;
+.mobile_menu_panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100%;
+  background-color: rgba(42, 42, 42, 0.98);
+  padding: 1em;
+  padding-top: 1em;
+  z-index: 1012;
+  transition: right 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.2);
 }
 
-.menu-icon:hover {
+.mobile_menu_panel.active {
+  right: 0;
+}
+
+.menu-icon-close {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: $text;
+  font-size: 30px;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5em 0;
+  margin-bottom: 1em;
+}
+
+.menu-icon-close i:hover {
   color: $blue-theme;
 }
 
-.mobile-menu-container {
-  position: relative;
-  z-index: 1001;
+.mobile_menu_panel ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
-@media screen and (min-width: 481px) {
-  .menu-icon {
+.mobile_menu_panel ul li {
+  color: $text;
+  font-size: 1.3em;
+  font-family: gugi, serif;
+  padding: 0.8em 0em;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: color 0.3s ease-in-out;
+}
+
+.mobile_menu_panel ul li:hover {
+  color: $blue-theme;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop_menu_nav {
     display: none;
+  }
+  .menu-icon-open {
+    display: flex;
+  }
+  header {
+    height: 50px;
+    padding: 0 0.75em;
+  }
+  .logo {
+    max-height: calc(50px - 0.5em);
+  }
+  .mobile_menu_panel {
+    padding-top: 0.5em;
+  }
+  .menu-icon-close {
+    font-size: 28px;
+    padding: 0.4em 0;
+    margin-bottom: 0.8em;
   }
 }
 
-@media screen and (max-width: 480px)  {
-
-  .desktop_menu {
+@media screen and (min-width: 769px) {
+  .mobile_menu_panel {
     display: none;
   }
-
-  .desktop_menu.mobile_menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    right: 0;
-    transition: 0.4s ease-in-out;
-  }
-
-  .desktop_menu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-  }
-
-  .desktop_menu ul li {
-    display: block;
-    list-style-type: none;
-    margin: 0;
-    color: $text;
-    font-size: 1.5em;
-    padding: 0.5em 0;
-  }
-
-  .desktop_menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100%;
-    background-color: $page-background;
-    padding: 1em;
-    z-index: 1000;
-    transition: right 0.4s ease-in-out;
-  }
-
-  .desktop_menu.mobile_menu {
-    right: 0;
-  }
-
-  .menu-icon {
-    margin-top: -0.15em;
+  .menu-icon-open {
+    display: none;
   }
 }

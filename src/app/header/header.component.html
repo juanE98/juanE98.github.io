@@ -1,25 +1,28 @@
 <header>
-  <img src="assets/je-logo.png" class="logo">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-sm-3 col-3">
-        <div class="logo">
-        </div>
-      </div>
-      <div class="mobile-menu-container">
-        <div class="menu-icon" (click)="openMenu()">
-          <i class="{{menu_icon}}"></i>
-        </div>
-        <div class="desktop_menu" [class.mobile_menu]="menuValue">
-          <ul>
-            <li (click)="closeMenu(); goToPart('home')">Home</li>
-            <li (click)="closeMenu(); goToPart('about')"><a>About Me</a></li>
-            <li (click)="closeMenu(); goToPart('experience')">Experience</li>
-            <li (click)="closeMenu(); goToPart('technologies')"><a>Technologies</a></li>
-          </ul>
-        </div>
-      </div>
+  <img src="assets/je-logo.png" alt="Logo" class="logo" (click)="goToPart('home')">
+
+  <nav class="desktop_menu_nav">
+    <ul>
+      <li (click)="goToPart('home')">Home</li>
+      <li (click)="goToPart('about')">About Me</li>
+      <li (click)="goToPart('experience')">Experience</li>
+      <li (click)="goToPart('technologies')">Technologies</li>
+    </ul>
+  </nav>
+
+  <div class="menu-icon-open" (click)="openMenu()">
+    <i class="bi bi-list"></i>
+  </div>
+
+  <div class="mobile_menu_panel" [class.active]="menuValue">
+    <div class="menu-icon-close" (click)="closeMenu()">
+      <i class="bi bi-x"></i>
     </div>
+    <ul>
+      <li (click)="closeMenu(); goToPart('home')">Home</li>
+      <li (click)="closeMenu(); goToPart('about')">About Me</li>
+      <li (click)="closeMenu(); goToPart('experience')">Experience</li>
+      <li (click)="closeMenu(); goToPart('technologies')">Technologies</li>
+    </ul>
   </div>
 </header>
-<div #aboutSection id="about"></div>
