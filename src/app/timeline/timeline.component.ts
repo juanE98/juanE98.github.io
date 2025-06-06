@@ -12,7 +12,7 @@ import {ScrollVisibilityDirective} from "../scroll-visibility.directive";
   styleUrls: ['./timeline.component.scss'] // Corrected property name
 })
 export class TimelineComponent {
-  readonly events: ReadonlyArray<[string, string, string]> = [
+  events: [string, string, string][] = [
     ['Pharmacy Student', 'Calanna Terrywhite | 2018', 'rural pharmacy student placement'],
     ['Bachelor of Pharmaceutics and Therapeutic Science', 'University of Queensland | 2016 - 2018', ''],
     ['Pharmacy Assistant', 'Chemist Warehouse | 2017 - 2019', 'Worked in a fast paced environment where time management and communication / customer support skills were vital.'],
@@ -21,6 +21,10 @@ export class TimelineComponent {
     ['Dye and Durham', 'Junior Software Engineer | 2023 - 2024', 'Primarily .NET microservices with Angular frontend deployed through kubernetes in GCP.'],
     ['Contal Services', 'Backend Software Engineer - Current', 'Java backend with Spring Boot']
   ];
+
+  constructor() {
+    this.events.reverse();
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
