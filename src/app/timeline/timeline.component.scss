@@ -7,6 +7,12 @@
   position: relative;
 }
 
+@media screen and (max-width: 768px) {
+  .timeline-container {
+    margin: 2em auto 0;
+  }
+}
+
 .timeline {
   position: relative;
   margin: 2em auto;
@@ -90,6 +96,14 @@
   animation: slideInRight 1s ease-out forwards;
 }
 
+@media (max-width: 768px) {
+  .timeline-item.left.in-view,
+  .timeline-item.right.in-view {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
 /* Content arrow styling */
 .timeline-item.left .content::after {
   content: '';
@@ -116,7 +130,7 @@
 @media screen and (max-width: 768px) {
   .timeline-container {
     max-width: 100%;
-    padding: 0 1em;
+    padding: 0 0.5em;
   }
 
   .timeline::after {
@@ -125,14 +139,18 @@
 
   .timeline-item {
     width: 100%;
-    margin: 3em 0;
+    margin: 2em 0;
   }
 
   .timeline-item.left,
   .timeline-item.right {
     left: 0;
-    padding-left: 60px;
-    padding-right: 15px;
+    padding-left: 50px;
+    padding-right: 10px;
+  }
+  
+  .timeline-item .content {
+    padding: 1.5em;
   }
 
   .timeline-item .content {
@@ -164,7 +182,8 @@
 
 @media screen and (max-width: 480px) {
   .timeline-container {
-    margin-top: 2em;
+    margin-top: 1em;
+    padding: 0 0.25em;
   }
 
   .timeline::after {
@@ -172,13 +191,17 @@
   }
 
   .timeline-item {
-    margin: 2em 0;
+    margin: 1.5em 0;
   }
 
   .timeline-item.left,
   .timeline-item.right {
-    padding-left: 45px;
-    padding-right: 10px;
+    padding-left: 40px;
+    padding-right: 5px;
+  }
+  
+  .timeline-item .content {
+    padding: 1em;
   }
 
   .timeline-item .circle {

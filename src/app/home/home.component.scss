@@ -33,6 +33,12 @@
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .arrow-button {
+    transition: none;
+  }
+}
+
 .arrow-button.hidden {
   opacity: 0;
   pointer-events: none;
@@ -40,16 +46,16 @@
 
 @media (max-width: 480px) {
   .container {
-    padding: 0.5em;
+    padding: 0.25em;
   }
 
   .container img {
-    margin: 10em auto 2em;
-    padding-bottom: 30em;
+    margin: 4em auto 1em;
+    padding-bottom: 15em;
   }
   .arrow-button {
     font-size: 2.5em;
-    bottom: 2.5em;
+    bottom: 1.5em;
   }
 }
 

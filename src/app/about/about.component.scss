@@ -32,6 +32,12 @@ p {
   flex-direction: column;
 }
 
+@media (max-width: 768px) {
+  .column {
+    transition: none;
+  }
+}
+
 .left-column {
   flex: 1 1 450px;
   margin-right: 1em;
@@ -58,19 +64,27 @@ p {
   opacity: 1;
 }
 
+@media (max-width: 768px) {
+  .left-column.in-view,
+  .right-column.in-view {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
 .right-column h2 {
   margin-bottom: 0.75em;
 }
 
 @media screen and (max-width: 992px) {
   .about-container {
-    padding: 3em 1.5em;
+    padding: 2em 1em;
     flex-direction: column;
     align-items: center;
   }
   .left-column, .right-column {
     transform: none;
-    margin: 0 0 2em 0;
+    margin: 0 0 1em 0;
     flex: 1 1 100%;
     max-width: 600px;
   }
@@ -91,10 +105,20 @@ p {
   }
 
   .about-container {
-    padding: 2em 1em;
+    padding: 1em 0.5em;
   }
 
   .profile-pic {
-    max-width: 300px;
+    max-width: 280px;
+    margin: 0 auto 1em;
+  }
+  
+  .column {
+    padding: 0.5em;
+  }
+  
+  p {
+    margin-bottom: 1em;
+    font-size: 1.1em;
   }
 }

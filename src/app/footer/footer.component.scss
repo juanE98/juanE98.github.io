@@ -13,6 +13,11 @@ footer {
         color: $text;
         transition: color 0.3s ease-in-out;
       }
+      @media (max-width: 768px) {
+        i {
+          transition: none;
+        }
+      }
     }
   }
 
@@ -27,11 +32,15 @@ footer {
   footer {
     text-align: center;
     margin: 0 auto;
+    padding: 1.5em 0.5em;
   }
   .social-icons {
     display: flex;
     justify-content: center;
-    gap: 1em;
-    font-size: 3em;
+    gap: 0.8em;
+    font-size: 2.5em;
+  }
+  .copyright {
+    margin-top: 0.8em;
   }
 }

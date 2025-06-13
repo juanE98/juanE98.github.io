@@ -21,6 +21,12 @@ header {
   transition: transform 0.3s ease-in-out;
 }
 
+@media (max-width: 768px) {
+  header {
+    transition: none;
+  }
+}
+
 header.hidden {
   transform: translateY(-100%);
 }
@@ -48,6 +54,12 @@ header.hidden {
   margin-left: 2.5em;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .desktop_menu_nav ul li {
+    transition: none;
+  }
 }
 
 .desktop_menu_nav ul li:hover {
@@ -80,6 +92,15 @@ header.hidden {
   display: flex;
   flex-direction: column;
   box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .mobile_menu_panel {
+    transition: none;
+  }
+  .mobile_menu_panel.active {
+    right: 0;
+  }
 }
 
 .mobile_menu_panel.active {
@@ -118,6 +139,12 @@ header.hidden {
   width: 100%;
   text-align: left;
   transition: color 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .mobile_menu_panel ul li {
+    transition: none;
+  }
 }
 
 .mobile_menu_panel ul li:hover {

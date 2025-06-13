@@ -108,6 +108,22 @@ h2 {
   color: $text;
 }
 
+/* Disable animations on mobile devices except carousel */
+@media (max-width: 768px) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Re-enable carousel animation on mobile */
+  .carousel-track {
+    animation-duration: 35s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+
 /* Mainly for the timeline section */
 h3 {
   font-family: gugi, serif;
