@@ -15,10 +15,14 @@ import {ScrollVisibilityDirective} from "../scroll-visibility.directive";
 })
 export class ImageCarouselComponent implements OnInit {
   icons: string[] = [];
+  allIcons: string[] = [];
 
   ngOnInit() {
     this.icons = this.generateIconPaths(5, 20);
-    this.icons = [...this.icons, ...this.icons]; // Duplicate the icons array
+    // Create enough copies for seamless scroll
+    this.allIcons = [...this.icons, ...this.icons, ...this.icons];
+    console.log('Icons:', this.icons);
+    console.log('All icons:', this.allIcons);
   }
 
   generateIconPaths(start: number, end: number): string[] {

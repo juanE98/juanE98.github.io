@@ -13,21 +13,11 @@ h2 {
   }
 }
 
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
 .carousel {
   overflow: hidden;
   padding: 1.5em 0;
   width: 85%;
   background: $page-background;
-  white-space: nowrap;
   position: relative;
   margin: 0 auto;
 }
@@ -57,19 +47,46 @@ h2 {
   right: 0;
 }
 
-.carousel-track {
-  display: inline-block;
-  animation: 35s slide infinite linear;
+.scroll-container {
+  overflow: hidden;
+  width: 100%;
 }
 
-.carousel-track img {
+.scroll-track {
+  display: flex;
+  animation: scroll 30s linear infinite;
+}
+
+.scroll-item {
   height: 28em;
-  margin: 0 -0.1em;
+  width: 280px;
+  flex-shrink: 0;
+  object-fit: contain;
+  margin-right: 2rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-280px * 16 - 2rem * 16));
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .carousel-track img {
+  .scroll-item {
     height: 20em;
-    margin: 0 -0.1em;
+    width: 200px;
+    margin-right: 1rem;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-200px * 16 - 1rem * 16));
+    }
   }
 }
