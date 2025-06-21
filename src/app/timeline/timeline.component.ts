@@ -28,12 +28,18 @@ export class TimelineComponent {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const elements = document.querySelectorAll('.timeline > div');
+    const elements = document.querySelectorAll('.timeline-item');
     const windowHeight = window.innerHeight;
 
     elements.forEach(element => {
-      const position = element.getBoundingClientRect().top;
-      if (position < windowHeight - 100) {
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top;
+      const elementBottom = rect.bottom;
+      
+      // Only trigger when element is significantly visible (30% of viewport from top)
+      const triggerPoint = windowHeight * 0.7;
+      
+      if (elementTop < triggerPoint && elementBottom > 0) {
         element.classList.add('in-view');
       }
     });
