@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {ScrollVisibilityDirective} from "../scroll-visibility.directive";
 
@@ -26,22 +26,4 @@ export class TimelineComponent {
     this.events.reverse();
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const elements = document.querySelectorAll('.timeline-item');
-    const windowHeight = window.innerHeight;
-
-    elements.forEach(element => {
-      const rect = element.getBoundingClientRect();
-      const elementTop = rect.top;
-      const elementBottom = rect.bottom;
-      
-      // Only trigger when element is significantly visible (30% of viewport from top)
-      const triggerPoint = windowHeight * 0.7;
-      
-      if (elementTop < triggerPoint && elementBottom > 0) {
-        element.classList.add('in-view');
-      }
-    });
-  }
 }

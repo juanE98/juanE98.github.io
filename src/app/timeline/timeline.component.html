@@ -1,4 +1,4 @@
-<div class="timeline-container"  [appScrollVisibility]="'.timeline'">
+<div class="timeline-container"  [appScrollVisibility]="'.timeline-item'">
   <h2 class="timeline-title">Experience</h2>
   <div class="timeline">
     <div *ngFor="let event of events; let i = index" class="timeline-item" [class.left]="i % 2 === 0" [class.right]="i % 2 !== 0">
