@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -25,25 +25,87 @@ import { FooterComponent } from './footer/footer.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'website-portfolio';
+  private scrollTimeout: any;
+  private isScrolling = false;
+  private isMobile = false;
+  private lastScrollTop = 0;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
+    this.checkMobile();
     this.activatedRoute.fragment.subscribe((fragment: string | null) => {
       if (fragment) this.jumpToSection(fragment);
     });
   }
 
+  private checkMobile() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
   jumpToSection(section: string | null) {
-    if (section) document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+    if (section) {
+      const element = document.getElementById(section);
+      if (element) {
+        // Use different scroll behavior for mobile vs desktop
+        const behavior = this.isMobile ? 'auto' : 'smooth';
+        element.scrollIntoView({ behavior, block: 'start' });
+      }
+    }
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    if (window.scrollY === 0) {
-      this.router.navigate([], { fragment: '' });
+    // Throttle scroll events for better performance
+    if (this.isScrolling) return;
+    
+    this.isScrolling = true;
+    
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
+    
+    this.scrollTimeout = setTimeout(() => {
+      const currentScrollTop = window.scrollY;
+      
+      // Prevent scroll bounce at boundaries
+      if (this.isMobile) {
+        const documentHeight = document.documentElement.scrollHeight;
+        const windowHeight = window.innerHeight;
+        const maxScroll = documentHeight - windowHeight;
+        
+        // Prevent over-scroll at top
+        if (currentScrollTop < 0) {
+          window.scrollTo(0, 0);
+          return;
+        }
+        
+        // Prevent over-scroll at bottom
+        if (currentScrollTop > maxScroll) {
+          window.scrollTo(0, maxScroll);
+          return;
+        }
+      }
+      
+      if (currentScrollTop === 0) {
+        this.router.navigate([], { fragment: '' });
+      }
+      
+      this.lastScrollTop = currentScrollTop;
+      this.isScrolling = false;
+    }, this.isMobile ? 32 : 16); // Slower throttling on mobile
+  }
+
+  @HostListener('window:resize', [])
+  onWindowResize() {
+    this.checkMobile();
+  }
+
+  ngOnDestroy() {
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
     }
   }
 }

@@ -25,10 +25,19 @@ html, body {
   min-height: 100%;
   width: 100%;
   overflow-x: hidden;
+  /* Prevent bounce/rubber band scrolling on mobile */
+  overscroll-behavior: none;
+  /* Enable hardware acceleration for smoother scrolling */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 body {
   overflow-y: auto;
+  /* Prevent bounce/rubber band scrolling */
+  overscroll-behavior-y: none;
+  /* Enable momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 app-root {
@@ -37,6 +46,11 @@ app-root {
   width: 100%;
   background-color: $page-background;
   overflow-x: hidden;
+  /* Prevent bounce scrolling */
+  overscroll-behavior: none;
+  /* Enable hardware acceleration */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 @keyframes slideInLeft {
@@ -109,15 +123,41 @@ h2 {
   color: $text;
 }
 
-/* Disable scroll behavior and specific animations on mobile */
+/* Enhanced mobile optimizations */
 @media (max-width: 768px) {
   html {
     scroll-behavior: auto !important;
+    /* Enhanced mobile scroll prevention */
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    /* Prevent any scrolling issues on mobile */
+    overscroll-behavior-y: none;
+    position: relative;
+    /* Enable smooth scrolling with momentum */
+    -webkit-overflow-scrolling: touch;
   }
   
   /* Disable navbar animations */
   .navbar, .nav-link {
     transition-duration: 0.01ms !important;
+  }
+  
+  /* Optimize all elements for better mobile scrolling */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+  
+  /* Prevent scroll chaining */
+  .container, .row, .col {
+    overscroll-behavior: none;
   }
 }
 

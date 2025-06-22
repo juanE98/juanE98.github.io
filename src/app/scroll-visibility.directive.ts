@@ -1,23 +1,54 @@
-import { Directive, ElementRef, HostListener, Input, Renderer2, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Renderer2, OnInit, OnDestroy } from '@angular/core';
 
 @Directive({
   selector: '[appScrollVisibility]',
   standalone: true
 })
-export class ScrollVisibilityDirective implements OnInit {
+export class ScrollVisibilityDirective implements OnInit, OnDestroy {
   @Input('appScrollVisibility') selector: string = '.column';
   private animatedElements: Set<HTMLElement> = new Set();
+  private scrollTimeout: any;
+  private isScrolling = false;
+  private isMobile = false;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
+    // Check if we're on mobile
+    this.isMobile = window.innerWidth <= 768;
+    
     // Initial check in case elements are already in view on load
     this.checkVisibility();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.checkVisibility();
+    // Enhanced throttling for mobile performance
+    if (this.isScrolling) return;
+    
+    this.isScrolling = true;
+    
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
+    
+    const delay = this.isMobile ? 32 : 16; // Slower on mobile for better performance
+    
+    this.scrollTimeout = setTimeout(() => {
+      this.checkVisibility();
+      this.isScrolling = false;
+    }, delay);
+  }
+
+  @HostListener('window:resize', [])
+  onWindowResize() {
+    this.isMobile = window.innerWidth <= 768;
+  }
+
+  ngOnDestroy() {
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
   }
 
   private checkVisibility() {
