@@ -4,9 +4,9 @@
   <nav class="desktop_menu_nav">
     <ul>
       <li (click)="goToPart('home')">Home</li>
+      <li (click)="goToPart('technologies')">Technologies</li>
       <li (click)="goToPart('about')">About Me</li>
       <li (click)="goToPart('experience')">Experience</li>
-      <li (click)="goToPart('technologies')">Technologies</li>
     </ul>
   </nav>
 
@@ -20,9 +20,9 @@
     </div>
     <ul>
       <li (click)="closeMenu(); goToPart('home')">Home</li>
+      <li (click)="closeMenu(); goToPart('technologies')">Technologies</li>
       <li (click)="closeMenu(); goToPart('about')">About Me</li>
       <li (click)="closeMenu(); goToPart('experience')">Experience</li>
-      <li (click)="closeMenu(); goToPart('technologies')">Technologies</li>
     </ul>
   </div>
 </header>

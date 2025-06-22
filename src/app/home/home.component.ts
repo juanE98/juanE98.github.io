@@ -39,11 +39,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  scrollToAbout() {
-    const aboutSection = document.getElementById('about');
+  scrollToTechnologies() {
+    const technologiesSection = document.getElementById('technologies');
     const arrowButton = document.querySelector('.arrow-button');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    if (technologiesSection) {
+      technologiesSection.scrollIntoView({ behavior: 'smooth' });
       if (arrowButton) {
         arrowButton.classList.add('hidden');
       }

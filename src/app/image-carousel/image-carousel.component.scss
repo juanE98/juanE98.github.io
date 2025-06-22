@@ -1,22 +1,10 @@
 @import "../../styles.scss";
 
-h2 {
-  text-align: center;
-  margin-top: 3.5em;
-  padding-top: 3.5em;
-}
-
-@media screen and (max-width: 480px) {
-  h2 {
-    margin-top: 2em;
-    padding-top: 2em;
-  }
-}
 
 .carousel {
   overflow: hidden;
-  padding: 1.5em 0;
-  width: 85%;
+  padding: 0.2em 0;
+  width: 95%;
   background: $page-background;
   position: relative;
   margin: 0 auto;
@@ -24,8 +12,8 @@ h2 {
 
 @media screen and (max-width: 480px) {
   .carousel {
-    padding: 0.8em 0;
-    width: 95%;
+    padding: 0.1em 0;
+    width: 98%;
   }
 }
 
