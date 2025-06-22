@@ -20,5 +20,4 @@
 
 ## Backlog
 - Implement unit tests
-- Enhance animations for timeline component
-- Implement mobile responsiveness for more screens with BreakpointObserver Service
+- Create backend to provide some stats, host on AWS
