@@ -1,5 +1,20 @@
 <div class="container">
-  <img src="assets/Borcelle.gif" alt="Juan Espares" height="522" width="928"/>
+  <div class="hero-content">
+    <div class="text-content">
+      <div class="name-badge">Juan Espares</div>
+      <h1 class="greeting">Hi, I'm Juan</h1>
+      <div class="typing-container">
+        <span class="typed-text">{{ currentText }}</span>
+        <span class="cursor">|</span>
+      </div>
+    </div>
+    
+    <div class="profile-image-placeholder">
+      <!-- Placeholder for profile image -->
+      <div class="image-placeholder">Your Photo Here</div>
+    </div>
+  </div>
+  
   <button class="arrow-button" (click)="scrollToAbout()">
     <i class="bi bi-arrow-down-circle"></i>
   </button>

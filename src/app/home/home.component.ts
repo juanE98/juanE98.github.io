@@ -1,24 +1,42 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
-import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    NgOptimizedImage
-  ],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, OnDestroy {
   isAboutInView = false;
+  currentText = '';
+  textIndex = 0;
+  charIndex = 0;
+  isDeleting = false;
+  typeSpeed = 100;
+  deleteSpeed = 75;
+  pauseDuration = 1000;
+  
+  texts = [
+    'I write code',
+    'I build software',
+    'I fix software',
+    'I integrate backend communication',
+    'I design system architectures'
+  ];
+  
+  private typingInterval?: number;
 
   ngOnInit() {
     window.addEventListener('scroll', this.onScroll);
+    this.startTyping();
   }
 
   ngOnDestroy() {
     window.removeEventListener('scroll', this.onScroll);
+    if (this.typingInterval) {
+      clearInterval(this.typingInterval);
+    }
   }
 
   scrollToAbout() {
@@ -42,5 +60,30 @@ export class HomeComponent implements OnInit, OnDestroy {
         arrowButton.classList.remove('hidden');
       }
     }
+  }
+  
+  private startTyping() {
+    this.typingInterval = window.setInterval(() => {
+      const currentFullText = this.texts[this.textIndex];
+      
+      if (!this.isDeleting) {
+        this.currentText = currentFullText.substring(0, this.charIndex + 1);
+        this.charIndex++;
+        
+        if (this.charIndex === currentFullText.length) {
+          setTimeout(() => {
+            this.isDeleting = true;
+          }, this.pauseDuration);
+        }
+      } else {
+        this.currentText = currentFullText.substring(0, this.charIndex - 1);
+        this.charIndex--;
+        
+        if (this.charIndex === 0) {
+          this.isDeleting = false;
+          this.textIndex = (this.textIndex + 1) % this.texts.length;
+        }
+      }
+    }, this.isDeleting ? this.deleteSpeed : this.typeSpeed);
   }
 }
