@@ -34,10 +34,10 @@ header.hidden {
 .logo {
   display: flex;
   align-items: center;
-  width: 4em;
   max-height: calc(55px - 1em);
   height: auto;
   cursor: pointer;
+  object-fit: contain;
 }
 
 .desktop_menu_nav ul {

@@ -21,9 +21,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     'I write code',
     'I build software',
     'I fix software',
-    'I integrate backend communications',
+    'I optimise systems',
     'I design system architecture',
-    'I solve problems'
+    'I solve problems',
+    'I secure systems'
   ];
   
   private typingInterval?: number;
