@@ -102,6 +102,19 @@ app-root {
   color: black;
 }
 
+/* Mobile menu scroll prevention */
+html.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+body.no-interaction {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 0.7em;
@@ -146,7 +159,7 @@ h2 {
   }
   
   /* Optimize all elements for better mobile scrolling */
-  * {
+  *:not(.mobile_menu_panel):not(.mobile_menu_panel *) {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
