@@ -7,6 +7,10 @@
   position: relative;
 }
 
+.timeline-title {
+  color: $text;
+}
+
 @media screen and (max-width: 768px) {
   .timeline-container {
     margin: 0.8em auto 0;
