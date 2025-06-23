@@ -1,4 +1,4 @@
-@import "../../styles.scss";
+@use "../shared/variables" as *;
 
 .about-container {
   display: flex;

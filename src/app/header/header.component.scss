@@ -1,10 +1,7 @@
-@import "../../styles.scss";
+@use "../shared/variables" as *;
 
 $accent: #ffa213;
-$page-background: #2A2A2A;
 $hover: #313131;
-$text: #d9d9d9;
-$blue-theme: #91d3d6;
 
 header {
   display: flex;

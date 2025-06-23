@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {NgForOf} from "@angular/common";
 import {ScrollVisibilityDirective} from "../scroll-visibility.directive";
 
 @Component({
@@ -7,7 +7,6 @@ import {ScrollVisibilityDirective} from "../scroll-visibility.directive";
   standalone: true,
   imports: [
     NgForOf,
-    NgOptimizedImage,
     ScrollVisibilityDirective
   ],
   templateUrl: './image-carousel.component.html',
