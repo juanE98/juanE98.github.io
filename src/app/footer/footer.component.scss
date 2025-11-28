@@ -44,3 +44,14 @@ footer {
     margin-top: 0.8em;
   }
 }
+
+@media (max-width: 414px) {
+  footer {
+    padding: 1.25em 0.25em;
+  }
+
+  .social-icons {
+    gap: 1em;
+    font-size: 2.2em;
+  }
+}
