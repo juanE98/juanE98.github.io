@@ -92,11 +92,19 @@
 }
 
 .timeline-item.left.in-view {
-  animation: slideInLeft 1s ease-out forwards;
+  animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .timeline-item.right.in-view {
-  animation: slideInRight 1s ease-out forwards;
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.timeline-item.left.out-of-view {
+  animation: slideOutLeft 0.5s ease-in forwards;
+}
+
+.timeline-item.right.out-of-view {
+  animation: slideOutRight 0.5s ease-in forwards;
 }
 
 
