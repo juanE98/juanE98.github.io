@@ -92,11 +92,19 @@
 }
 
 .timeline-item.left.in-view {
-  animation: slideInLeft 1s ease-out forwards;
+  animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .timeline-item.right.in-view {
-  animation: slideInRight 1s ease-out forwards;
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.timeline-item.left.out-of-view {
+  animation: slideOutLeft 0.5s ease-in forwards;
+}
+
+.timeline-item.right.out-of-view {
+  animation: slideOutRight 0.5s ease-in forwards;
 }
 
 
@@ -216,5 +224,40 @@
   .timeline-item.left .circle,
   .timeline-item.right .circle {
     left: 10px;
+  }
+}
+
+@media (max-width: 414px) {
+  .timeline::after {
+    left: 15px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    padding-left: 35px;
+    padding-right: 0;
+  }
+
+  .timeline-item .circle {
+    width: 18px;
+    height: 18px;
+    left: 6px;
+  }
+
+  .timeline-item.left .circle,
+  .timeline-item.right .circle {
+    left: 6px;
+  }
+
+  .timeline-item .content {
+    padding: 0.85em;
+  }
+
+  .timeline-item .content h3 {
+    font-size: 1.2em;
+  }
+
+  .timeline-item .content h4 {
+    font-size: 1em;
   }
 }

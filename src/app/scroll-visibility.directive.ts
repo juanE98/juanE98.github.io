@@ -6,7 +6,8 @@ import { Directive, ElementRef, HostListener, Input, Renderer2, OnInit, OnDestro
 })
 export class ScrollVisibilityDirective implements OnInit, OnDestroy {
   @Input('appScrollVisibility') selector: string = '.column';
-  private animatedElements: Set<HTMLElement> = new Set();
+  @Input() visibilityThreshold: number = 0.3; // Element must be 30% visible to trigger
+  private visibleElements: Set<HTMLElement> = new Set();
   private scrollTimeout: any;
   private isScrolling = false;
   private isMobile = false;
@@ -14,26 +15,22 @@ export class ScrollVisibilityDirective implements OnInit, OnDestroy {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
-    // Check if we're on mobile
     this.isMobile = window.innerWidth <= 768;
-    
-    // Initial check in case elements are already in view on load
     this.checkVisibility();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // Enhanced throttling for mobile performance
     if (this.isScrolling) return;
-    
+
     this.isScrolling = true;
-    
+
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
     }
-    
-    const delay = this.isMobile ? 32 : 16; // Slower on mobile for better performance
-    
+
+    const delay = this.isMobile ? 32 : 16;
+
     this.scrollTimeout = setTimeout(() => {
       this.checkVisibility();
       this.isScrolling = false;
@@ -52,27 +49,39 @@ export class ScrollVisibilityDirective implements OnInit, OnDestroy {
   }
 
   private checkVisibility() {
+    // Skip bidirectional animations on mobile
+    if (this.isMobile) {
+      return;
+    }
+
     const parentElement = this.el.nativeElement;
-    const columns = parentElement.querySelectorAll(this.selector);
+    const elements = parentElement.querySelectorAll(this.selector);
     const windowHeight = window.innerHeight;
 
-    columns.forEach((column: HTMLElement) => {
-      if (this.animatedElements.has(column)) {
-        return; // Already animated, do nothing
-      }
+    elements.forEach((element: HTMLElement) => {
+      const rect = element.getBoundingClientRect();
+      const elementHeight = rect.height;
 
-      const position = column.getBoundingClientRect().top;
-      // Check if the top of the column is within the viewport (or slightly above)
-      // and if the bottom of the column is also within the viewport (or slightly below)
-      const columnHeight = column.offsetHeight;
-      const buffer = 50; // A small buffer to trigger a bit earlier/later
+      // Calculate how much of the element is visible
+      const visibleTop = Math.max(0, rect.top);
+      const visibleBottom = Math.min(windowHeight, rect.bottom);
+      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+      const visibleRatio = visibleHeight / elementHeight;
 
-      if (position < windowHeight - buffer && (position + columnHeight) > buffer) {
-        this.renderer.addClass(column, 'in-view');
-        this.renderer.removeClass(column, 'out-of-view'); // Ensure out-of-view is removed
-        this.animatedElements.add(column);
+      const isInView = visibleRatio >= this.visibilityThreshold;
+      const wasInView = this.visibleElements.has(element);
+
+      if (isInView && !wasInView) {
+        // Element entering viewport
+        this.renderer.removeClass(element, 'out-of-view');
+        this.renderer.addClass(element, 'in-view');
+        this.visibleElements.add(element);
+      } else if (!isInView && wasInView) {
+        // Element leaving viewport
+        this.renderer.removeClass(element, 'in-view');
+        this.renderer.addClass(element, 'out-of-view');
+        this.visibleElements.delete(element);
       }
-      // No 'else' block to remove 'in-view' or add 'out-of-view' if we only want to animate once
     });
   }
 }

@@ -20,8 +20,6 @@ export class ImageCarouselComponent implements OnInit {
     this.icons = this.generateIconPaths(5, 20);
     // Create enough copies for seamless scroll
     this.allIcons = [...this.icons, ...this.icons, ...this.icons];
-    console.log('Icons:', this.icons);
-    console.log('All icons:', this.allIcons);
   }
 
   generateIconPaths(start: number, end: number): string[] {

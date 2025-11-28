@@ -184,6 +184,29 @@
   }
 }
 
+@media (max-width: 414px) {
+  .greeting {
+    font-size: 2.5rem;
+  }
+
+  .typed-text,
+  .cursor {
+    font-size: 1.4rem;
+  }
+
+  .profile-photo {
+    width: 70vw;
+    height: 70vw;
+    max-width: 320px;
+    max-height: 320px;
+  }
+
+  .arrow-button {
+    font-size: 2em;
+    bottom: 1.5em;
+  }
+}
+
 @media (max-width: 380px) {
   .arrow-button {
     font-size: 2.2em;
@@ -191,11 +214,3 @@
   }
 }
 
-/*
-@media (max-width: 414px) and (min-width: 375px) {
-  .arrow-button {
-    font-size: 2.8em;
-    bottom: 2.8em;
-  }
-}
-*/

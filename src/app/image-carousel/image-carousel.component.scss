@@ -68,13 +68,30 @@
     width: 200px;
     margin-right: 1rem;
   }
-  
+
   @keyframes scroll {
     0% {
       transform: translateX(0);
     }
     100% {
       transform: translateX(calc(-200px * 16 - 1rem * 16));
+    }
+  }
+}
+
+@media (max-width: 414px) {
+  .scroll-item {
+    height: 18em;
+    width: 180px;
+    margin-right: 0.75rem;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-180px * 16 - 0.75rem * 16));
     }
   }
 }
