@@ -58,44 +58,45 @@ export class AppComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // Throttle scroll events for better performance
-    if (this.isScrolling) return;
-    
-    this.isScrolling = true;
-    
+    // Debounce scroll events for better performance
+    // Clear any existing timeout to reset the debounce timer
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
     }
-    
+
+    this.isScrolling = true;
+
     this.scrollTimeout = setTimeout(() => {
       const currentScrollTop = window.scrollY;
-      
+
       // Prevent scroll bounce at boundaries
       if (this.isMobile) {
         const documentHeight = document.documentElement.scrollHeight;
         const windowHeight = window.innerHeight;
         const maxScroll = documentHeight - windowHeight;
-        
+
         // Prevent over-scroll at top
         if (currentScrollTop < 0) {
           window.scrollTo(0, 0);
+          this.isScrolling = false;
           return;
         }
-        
+
         // Prevent over-scroll at bottom
         if (currentScrollTop > maxScroll) {
           window.scrollTo(0, maxScroll);
+          this.isScrolling = false;
           return;
         }
       }
-      
+
       if (currentScrollTop === 0) {
         this.router.navigate([], { fragment: '' });
       }
-      
+
       this.lastScrollTop = currentScrollTop;
       this.isScrolling = false;
-    }, this.isMobile ? 32 : 16); // Slower throttling on mobile
+    }, this.isMobile ? 32 : 16); // Slower debouncing on mobile
   }
 
   @HostListener('window:resize', [])
