@@ -2,7 +2,7 @@ import { TestBed, ComponentFixture, fakeAsync, tick } from '@angular/core/testin
 import { provideRouter, Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { AppComponent } from './app.component';
+import { AppComponent } from '../../app/app.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;

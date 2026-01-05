@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
-import { HeaderComponent } from './header.component';
+import { HeaderComponent } from '../../app/header/header.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
