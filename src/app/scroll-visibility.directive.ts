@@ -16,18 +16,21 @@ export class ScrollVisibilityDirective implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isMobile = window.innerWidth <= 768;
+    // Normalize empty selector to default
+    if (!this.selector) {
+      this.selector = '.column';
+    }
     this.checkVisibility();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    if (this.isScrolling) return;
-
-    this.isScrolling = true;
-
+    // Clear any existing timeout to reset the debounce timer
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
     }
+
+    this.isScrolling = true;
 
     const delay = this.isMobile ? 32 : 16;
 
@@ -55,7 +58,9 @@ export class ScrollVisibilityDirective implements OnInit, OnDestroy {
     }
 
     const parentElement = this.el.nativeElement;
-    const elements = parentElement.querySelectorAll(this.selector);
+    // Use default selector if empty or not provided
+    const selectorToUse = this.selector || '.column';
+    const elements = parentElement.querySelectorAll(selectorToUse);
     const windowHeight = window.innerHeight;
 
     elements.forEach((element: HTMLElement) => {
